@@ -32,6 +32,7 @@ export const fetchCountries = async () => {
   try {
     const { data: { countries } } = await axios.get(`${url}/countries`);
 
+    countries.forEach(country => country.name === "US" ? country.name = "United States of America" : "")
     return countries.map((country) => country.name);
   } catch (error) {
     return error;
