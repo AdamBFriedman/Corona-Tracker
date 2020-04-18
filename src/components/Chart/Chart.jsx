@@ -11,12 +11,15 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
   useEffect(() => {
     const fetchMyAPI = async () => {
       const initialDailyData = await fetchDailyData();
-
       setDailyData(initialDailyData);
     };
 
     fetchMyAPI();
   }, []);
+
+//   const numberWithCommas = (x) => {
+//     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+// }
 
   const barChart = (
     confirmed ? (
@@ -27,7 +30,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
             {
               label: 'People',
               backgroundColor: ['#98B4D4', '#36d4c1', '#DD4124'],
-              data: [confirmed.value, recovered.value, deaths.value],
+              data: [confirmed.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), recovered.value, deaths.value],
             },
           ],
         }}
