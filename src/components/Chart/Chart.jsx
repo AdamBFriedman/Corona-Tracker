@@ -30,7 +30,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
             {
               label: 'People',
               backgroundColor: ['#98B4D4', '#36d4c1', '#DD4124'],
-              data: [confirmed.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), recovered.value, deaths.value],
+              data: [confirmed.value.toString(), recovered.value, deaths.value],
             },
           ],
         }}
